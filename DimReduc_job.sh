@@ -1,7 +1,5 @@
 #!/bin/bash
 # Slurm Script Input Variables
-#SBATCH --error=job_out/%x-%A_%a.out
-#SBATCH --output=job_out/%x-%A_%a.out
 ##SBATCH --partition=theia, cpu2021-bf24
 #SBATCH --time=00:30:00
 #SBATCH --mem=4GB
@@ -18,10 +16,9 @@ OUTPUT_DIR="/work/long_lab/janith/IBAS_results"
 
 # Command
 start=$SECONDS
-Rscript 01_DimReduc.R --expr_data=$EXP_DATA \
+Rscript /work/long_lab/janith/IBAS/01_DimReduc.R --expr_data=$EXP_DATA \
 				--pathway_data=$PATH_DATA \
 				--gene_data=$GENE_DATA \
 				--output_dir=$OUTPUT_DIR
-rm -rf /scratch/${SLURM_JOBID}
 end=$SECONDS
 echo "duration: $((end-start)) seconds."
