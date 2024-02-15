@@ -13,7 +13,7 @@ module load R/4.2.0
 
 # Setup
 EXP_DATA="/work/long_lab/janith/GTEX/PEERCorrectedExpression/Whole_Blood.v8.residuals.csv"
-PATH_DATA="/work/long_lab/janith/IBAS/Genesets.csv"
+PATH_DATA="/work/long_lab/janith/IBAS/GeneSets.csv"
 GENE_DATA="/work/long_lab/janith/GTEX/gencode.v26.GRCh38.genes.gtf"
 OUTPUT_DIR="/work/long_lab/janith/IBAS_results"
 
