@@ -85,9 +85,9 @@ print_log("Reading in expression data")
 expr_data <- fread(args$expr_data)
 print_log("Assuming matrix is of the form samples (rows) x genes (columns)")
 print_log("Converting to matrix of gene expression")
-print_log(c("Dim of expression matrix:",dim(expr_data)))
-expr_matrix <- t(as.matrix(expr_data[,-c(1)]))
-colnames(expr_matrix) <- expr_data[[1]]
+
+expr_matrix <- t(as.matrix(expr_data[,-c(1:4)]))
+colnames(expr_matrix) <- expr_data[[4]]
 
 # print_log("Selecting only genes that are in the pathways provided")
 # expr_matrix <- expr_matrix[,all_gene_ids]
@@ -101,7 +101,7 @@ for(i in seq(1, length(names(pathway_genes)))){
     curr_expr_matrix <- expr_matrix[,curr_gene_ids]
     print_log("Removing genes with zero variance")
     curr_expr_matrix <- curr_expr_matrix[, apply(curr_expr_matrix, 2, var) > 0]
-    print_log(c("n_components for UMAP: ",min(10, ncol(curr_expr_matrix))))
+    
     pathway_umap <- umap(curr_expr_matrix,
                         n_components = min(10, ncol(curr_expr_matrix)),
                         metric = "correlation",
