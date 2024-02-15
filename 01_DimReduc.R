@@ -1,4 +1,5 @@
 # Loading necessary packages
+library("pacman")
 pacman::p_load(data.table, uwot, Rtsne, ggplot2, argparse)
 
 # Function to print log messages
