@@ -1,5 +1,8 @@
 #!/bin/bash
 # Slurm Script Input Variables
+#SBATCH --job-name=dimReduc
+#SBATCH --output=%x-%j.out
+#SBATCH --error=%x-%j.err
 ##SBATCH --partition=theia, cpu2021-bf24
 #SBATCH --time=00:30:00
 #SBATCH --mem=4GB
