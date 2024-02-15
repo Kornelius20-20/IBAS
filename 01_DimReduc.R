@@ -85,6 +85,7 @@ print_log("Reading in expression data")
 expr_data <- fread(args$expr_data)
 print_log("Assuming matrix is of the form samples (rows) x genes (columns)")
 print_log("Converting to matrix of gene expression")
+print_log(c("Dim of expression matrix:",dim(expr_data)))
 expr_matrix <- t(as.matrix(expr_data[,-c(1)]))
 colnames(expr_matrix) <- expr_data[[1]]
 
