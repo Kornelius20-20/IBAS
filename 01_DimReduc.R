@@ -100,7 +100,7 @@ for(i in seq(1, length(names(pathway_genes)))){
     curr_expr_matrix <- expr_matrix[,curr_gene_ids]
     print_log("Removing genes with zero variance")
     curr_expr_matrix <- curr_expr_matrix[, apply(curr_expr_matrix, 2, var) > 0]
-
+    print_log(c("Current comp:",min(10, ncol(curr_expr_matrix)))
     pathway_umap <- umap(curr_expr_matrix,
                         n_components = min(10, ncol(curr_expr_matrix)),
                         metric = "correlation",
