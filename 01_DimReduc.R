@@ -1,11 +1,5 @@
 # Loading necessary packages
-# pacman::p_load(data.table, uwot, Rtsne, ggplot2, argparse)
-library("data.table")
-library("uwot")
-library("Rtsne")
-library("ggplot2")
-library("argparse")
-
+pacman::p_load(data.table, uwot, Rtsne, ggplot2, argparse)
 
 # Function to print log messages
 print_log <- function(message){
